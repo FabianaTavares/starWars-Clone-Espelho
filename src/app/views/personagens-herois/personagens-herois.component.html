@@ -20,13 +20,14 @@
 
   <input type="text" class="form-control" placeholder="Pesquise o personagem desejado" #termoDaPesquisa
     [formControl]="name">
-  <button class="btn btn-dark" (click)="pesquisarPersonagem()">Pesquisar</button>
+  <button class="btn btn-dark" (click)="pesquisarPersonagemClick()">Pesquisar</button>
 </div>
 
 
 
-<div *ngIf='posPesquisa'>
+<div *ngIf='posPesquisa' class="container">
   <table class="table">
+    <mat-spinner *ngIf="personagensArray.length === 0"></mat-spinner>
     <thead class="thead-dark">
       <tr>
         <th scope="col">Nome</th>
@@ -48,6 +49,9 @@
         <td>{{personagem.gender}}</td>
       </tr>
     </tbody>
+
+
+
   </table>
 </div>
 
@@ -56,8 +60,16 @@
 </div>
 
 
-<div *ngIf='paginator'>
+<!-- <div *ngIf='paginator'>
   <mat-paginator [pageIndex]="pageIndex" [length]="pageSize" [pageSize]="personagensArray.length"
     (page)="proximaPagina($event)">
   </mat-paginator>
+</div> -->
+
+<div *ngIf='personagensArray.length !== 0'>
+  <div class="row" *ngIf='paginator'>
+    <div class="col-xs-12 col-12">
+      <pagination (pageChanged)="proximaPagina($event.page)" [totalItems]="81"></pagination>
+    </div>
+  </div>
 </div>

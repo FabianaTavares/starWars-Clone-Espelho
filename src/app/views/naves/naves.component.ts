@@ -38,8 +38,6 @@ export class NavesComponent implements OnInit {
 
   passarPagina(pe: PageEvent) {
     pe.pageIndex;
-    console.log(pe);
-
     this.listarNaves(pe.pageIndex + 1);
   }
   openDialog(naves: any) {

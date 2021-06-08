@@ -11,7 +11,7 @@ import { VeiculosComponent } from './views/veiculos/veiculos.component';
 import { PlanetasComponent } from './views/planetas/planetas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -36,7 +36,7 @@ import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { ErroPageComponent } from './shared/erro-page/erro-page.component';
 import { HomeComponent } from './views/home/home.component';
 import { PersonagensHeroisComponent } from './views/personagens-herois/personagens-herois.component';
-import { ModalComponent } from './views/personagens-herois/modal/modal.component';
+
 
 
 
@@ -61,7 +61,6 @@ import { ModalComponent } from './views/personagens-herois/modal/modal.component
     DataPipe,
     HomeComponent,
     PersonagensHeroisComponent,
-    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +75,7 @@ import { ModalComponent } from './views/personagens-herois/modal/modal.component
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-
+    PaginationModule.forRoot(),
   ],
   providers: [
     AuthService,

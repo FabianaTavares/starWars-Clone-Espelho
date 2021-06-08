@@ -38,22 +38,22 @@
   color: white;
 }
 
-
-.input{
+.input {
   display: flex;
   justify-content: center;
   padding-top: 50px;
 }
-input{
+input {
   width: 40%;
-
 }
-
-
-
-
 
 /*tabela*/
-.table{
+.table {
   margin-top: 30px;
 }
+
+pagination {
+  display: flex;
+  justify-content: center;
+}
+
