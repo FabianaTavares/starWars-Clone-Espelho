@@ -61,11 +61,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "testeNESSAPORRA:build"
+            "browserTarget": "StarWars-CLONE:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "testeNESSAPORRA:build:production"
+              "browserTarget": "StarWars-CLONE:build:production"
             }
           }
         },
@@ -109,16 +109,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "testeNESSAPORRA:serve"
+            "devServerTarget": "StarWars-CLONE:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "testeNESSAPORRA:serve:production"
+              "devServerTarget": "StarWars-CLONE:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "testeNESSAPORRA"
+  "defaultProject": "StarWars-CLONE"
 }

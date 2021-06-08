@@ -8,7 +8,7 @@ import { Personagens } from 'src/app/shared/interface/personagens';
 import { PersonagensService } from 'src/app/shared/services/personagens.service';
 import { PersonagemModalComponent } from '../personagens/personagem-modal/personagem-modal.component';
 import { debounceTime } from 'rxjs/operators';
-import { ModalComponent } from './modal/modal.component';
+import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-personagens-herois',
@@ -20,16 +20,20 @@ export class PersonagensHeroisComponent implements OnInit {
   pageIndex: number = 0;
   pageSize!: number;
 
+
+  posPesquisa: boolean = true
   private subjectPesquisa: Subject<string> = new Subject<string>()
-  public personSearch!: Observable<any>
+  personSearch!: Observable<any>
   public pessoaPesquisada: Personagens[] = []
   name = new FormControl('')
+  public paginator: boolean = false
+
 
 
   constructor(
     private personagemService: PersonagensService,
     public dialog: MatDialog,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -64,42 +68,57 @@ export class PersonagensHeroisComponent implements OnInit {
     });
   }
 
-  pesquisar(){
-    const termoPesquisa = this.name.value
+  pesquisarPersonagem() {
+    const pesquisa = this.name.value
 
-    if(termoPesquisa === null || termoPesquisa === ''){
-      this.dialog.open(ModalComponent)
+    if (pesquisa < 10) {
+      this.paginator = true
+    } else {
+      this.paginator = false
     }
+    this.personagemService.pesquisaPersonagem(pesquisa).subscribe((result: any) => {
+      console.log(result)
+      this.pessoaPesquisada = result.results
+      console.log(result.results)
+      if (this.pessoaPesquisada.length === 0) {
+        this.posPesquisa = false
+      } else {
+        this.posPesquisa = true
+      }
+    })
+
   }
 
-  // pesquisar(termoDaBusca: string): void {
-  //   console.log(this.name)
-  //   this.subjectPesquisa.next(termoDaBusca) //fica observando o componente
-  //   this.personSearch = this.subjectPesquisa
-  //     .pipe(
-  //       debounceTime(100),//executa a ação apos 3 segundo
-  //       // switchMap((termo: string) => { //SwitchMap é usado para processar apenas a ultima requisição feita independente de quantas tenham sito feitas antes
-  //       //   return this.personagemService.pesquisaPersonagem(termo)
-  //       // })
-  //     )
 
-  //   this.personSearch.subscribe((data: string) => {
-  //     if (data.length >= 3) {
-  //       this.personagemService.pesquisaPersonagem(data).subscribe((result: any) => {
-  //         console.log(result)
-  //         this.pessoaPesquisada = result.results
-  //       })
 
-  //     } else {
-  //       this.pessoaPesquisada = []
-  //       console.log(this.pessoaPesquisada, 'teste')
-  //     }
+  pesquisar(termoDaBusca: string): void {
+    console.log(this.name)
+    this.subjectPesquisa.next(termoDaBusca) //fica observando o componente
+    this.personSearch = this.subjectPesquisa
+      .pipe(
+        debounceTime(100),//executa a ação apos 3 segundo
+        // switchMap((termo: string) => { //SwitchMap é usado para processar apenas a ultima requisição feita independente de quantas tenham sito feitas antes
+        //   return this.personagemService.pesquisaPersonagem(termo)
+        // })
+      )
 
-  //   })
-  //   // this.personagemService.pesquisaPersonagem(termoDaBusca).subscribe((data) => {
-  //   //   this.pessoaPesquisada = data.results
-  //   //   console.log(this.pessoaPesquisada)
-  //   // })
+    this.personSearch.subscribe((data: string) => {
+      if (data.length >= 3) {
+        this.personagemService.pesquisaPersonagem(data).subscribe((result: any) => {
+          console.log(result)
+          this.pessoaPesquisada = result.results
+        })
 
-  // }
+      } else {
+        this.pessoaPesquisada = []
+        console.log(this.pessoaPesquisada, 'teste')
+      }
+
+    })
+    // this.personagemService.pesquisaPersonagem(termoDaBusca).subscribe((data) => {
+    //   this.pessoaPesquisada = data.results
+    //   console.log(this.pessoaPesquisada)
+    // })
+
+  }
 }
