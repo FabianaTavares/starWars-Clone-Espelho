@@ -1,7 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FilmesService } from 'src/app/views/shared/services/filmes.service';
-import { Filme } from '../../shared/interface/filmes';
+import { Filme } from 'src/app/shared/interface/filmes';
+import { FilmesService } from 'src/app/shared/services/filmes.service';
+
 
 @Component({
   selector: 'app-personagem-modal',

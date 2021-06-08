@@ -1,0 +1,57 @@
+<app-nav-bar></app-nav-bar>
+
+
+
+
+<div class="container">
+  <div class="card">
+    <div class="card-content">
+      <div class="card-info">
+        <p>Personagens</p>
+        <h2>82</h2>
+      </div>
+      <img src="../../../assets/icons/personagens.svg" style="background-color: black;">
+    </div>
+  </div>
+</div>
+
+
+<div class="input">
+
+  <input type="text" class="form-control" placeholder="Pesquise o personagem desejado" #termoDaPesquisa
+    [formControl]="name">
+  <button class="btn btn-dark" (click)="pesquisar()">Pesquisar</button>
+</div>
+
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Altura</th>
+      <th scope="col">Massa</th>
+      <th scope="col">Ano de aniversario</th>
+      <th scope="col">Data de criação</th>
+      <th scope="col">Genero</th>
+    </tr>
+  </thead>
+  <tbody style="cursor:pointer">
+    <tr *ngFor='let personagem of personagensArray'>
+      <td>{{personagem.name}}</td>
+      <td>{{personagem.height}}</td>
+      <td>{{personagem.mass}}</td>
+      <td>{{personagem.birth_year}}</td>
+      <td>{{personagem.created | data}}</td>
+      <td>{{personagem.gender}}</td>
+    </tr>
+
+  </tbody>
+</table>
+<div *ngIf="">
+  <mat-paginator [pageIndex]="pageIndex" [length]="pageSize" [pageSize]="personagensArray.length"
+    (page)="proximaPagina($event)">
+  </mat-paginator>
+</div>
+
+

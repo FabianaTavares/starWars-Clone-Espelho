@@ -4,15 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService } from './views/login/auth.service';
 import { LoginComponent } from './views/login/login.component';
-import { HomeComponent } from './views/home/home.component';
 import { PersonagensComponent } from './views/personagens/personagens.component';
 import { FilmesComponent } from './views/filmes/filmes.component';
 import { NavesComponent } from './views/naves/naves.component';
 import { VeiculosComponent } from './views/veiculos/veiculos.component';
 import { PlanetasComponent } from './views/planetas/planetas.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { PersonagensService } from './views/shared/services/personagens.service';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -28,18 +27,23 @@ import { NavesModalComponent } from './views/naves/naves-modal/naves-modal.compo
 import { FilmesModalComponent } from './views/filmes/filmes-modal/filmes-modal.component';
 import { VeiculosModalComponent } from './views/veiculos/veiculos-modal/veiculos-modal.component';
 import { PlanetaModalComponent } from './views/planetas/planeta-modal/planeta-modal.component';
-import { NavBarComponent } from './views/shared/nav-bar/nav-bar.component';
-import { ErroPageComponent } from './views/shared/erro-page/erro-page.component';
+
 import { LoginModalComponent } from './views/login/modals/login-modal/login-modal.component';
 import { LoginErroComponent } from './views/login/modals/login-erro/login-erro.component';
-import { DataPipe } from './views/shared/pipes/data.pipe';
+import { DataPipe } from './shared/pipes/data.pipe';
+import { PersonagensService } from './shared/services/personagens.service';
+import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
+import { ErroPageComponent } from './shared/erro-page/erro-page.component';
+import { HomeComponent } from './views/home/home.component';
+import { PersonagensHeroisComponent } from './views/personagens-herois/personagens-herois.component';
+import { ModalComponent } from './views/personagens-herois/modal/modal.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     PersonagensComponent,
     FilmesComponent,
     NavesComponent,
@@ -55,7 +59,9 @@ import { DataPipe } from './views/shared/pipes/data.pipe';
     LoginModalComponent,
     LoginErroComponent,
     DataPipe,
-
+    HomeComponent,
+    PersonagensHeroisComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +74,9 @@ import { DataPipe } from './views/shared/pipes/data.pipe';
     MatCardModule,
     MatPaginatorModule,
     MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
   providers: [
     AuthService,

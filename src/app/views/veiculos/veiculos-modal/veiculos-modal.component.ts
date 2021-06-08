@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Personagens } from '../../shared/interface/personagens';
+import { Personagens } from 'src/app/shared/interface/personagens';
+
 import { VeiculosComponent } from '../veiculos.component';
 
 @Component({

@@ -1,6 +1,8 @@
+import { PersonagensHeroisComponent } from './views/personagens-herois/personagens-herois.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ErroPageComponent } from './views/shared/erro-page/erro-page.component';
+import { ErroPageComponent } from './shared/erro-page/erro-page.component';
+
 
 import { FilmesComponent } from './views/filmes/filmes.component';
 import { HomeComponent } from './views/home/home.component';
@@ -14,6 +16,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'personagens', component: PersonagensComponent },
+  { path: 'personagensHerois', component: PersonagensHeroisComponent },
   { path: 'filmes', component: FilmesComponent },
   { path: 'naves', component: NavesComponent },
   { path: 'planetas', component: PlanetasComponent },

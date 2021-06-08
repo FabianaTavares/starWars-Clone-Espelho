@@ -1,14 +1,12 @@
 import { PersonagemModalComponent } from './personagem-modal/personagem-modal.component';
 import { Component, OnInit } from '@angular/core';
-
-import { PersonagensService } from 'src/app/views/shared/services/personagens.service';
-import { Personagens } from '../shared/interface/personagens';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, switchMap, tap } from 'rxjs/operators';
-import { UpperCasePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { Personagens } from 'src/app/shared/interface/personagens';
+import { PersonagensService } from 'src/app/shared/services/personagens.service';
 
 
 
@@ -83,7 +81,7 @@ export class PersonagensComponent implements OnInit {
 
       } else {
         this.pessoaPesquisada = []
-        console.log(this.pessoaPesquisada ,'teste')
+        console.log(this.pessoaPesquisada, 'teste')
       }
 
     })
