@@ -50,7 +50,7 @@ export class PersonagensHeroisComponent implements OnInit {
 
 
         this.pessoaPesquisada = this.personagensArray
-        console.log(this.pessoaPesquisada)
+
       },
       (err) => {
         this.router.navigate(['/erro'])
@@ -74,7 +74,8 @@ export class PersonagensHeroisComponent implements OnInit {
       this.paginator = false
     }
     if (pesquisa === null || pesquisa === '') {
-
+      this.listarPersonagens(1)
+      this.posPesquisa = true
     } else {
       this.personagemService.pesquisaPersonagem(pesquisa).subscribe((result: any) => {
         this.pessoaPesquisada = result.results
