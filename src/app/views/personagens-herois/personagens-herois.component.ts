@@ -38,7 +38,6 @@ export class PersonagensHeroisComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarPersonagens(1);
-
   }
 
 
@@ -87,6 +86,7 @@ export class PersonagensHeroisComponent implements OnInit {
       })
     }
   }
+
 
 
 }

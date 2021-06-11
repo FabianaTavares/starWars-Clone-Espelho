@@ -17,9 +17,8 @@
 
 
 <div class="input">
-
   <input type="text" class="form-control" placeholder="Pesquise o personagem desejado" #termoDaPesquisa
-    [formControl]="name">
+    [formControl]="name" (keyup.enter)="pesquisarPersonagemClick()">
   <button class="btn btn-dark" (click)="pesquisarPersonagemClick()">Pesquisar</button>
 </div>
 
@@ -39,7 +38,7 @@
       </tr>
     </thead>
 
-    <tbody style="cursor:pointer">
+    <tbody>
       <tr *ngFor='let personagem of pessoaPesquisada'>
         <td>{{personagem.name}}</td>
         <td>{{personagem.height}}</td>

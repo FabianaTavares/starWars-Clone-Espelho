@@ -61,6 +61,7 @@ import { PersonagensHeroisComponent } from './views/personagens-herois/personage
     DataPipe,
     HomeComponent,
     PersonagensHeroisComponent,
+
   ],
   imports: [
     BrowserModule,
