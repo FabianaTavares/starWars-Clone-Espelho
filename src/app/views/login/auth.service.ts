@@ -1,10 +1,10 @@
-import { MatDialog } from '@angular/material/dialog';
+/* import { MatDialog } from '@angular/material/dialog'; */
 import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
 import { LoginErroComponent } from './modals/login-erro/login-erro.component';
-import { Login } from 'src/app/shared/interface/login';
+import { LoginModel } from 'src/app/shared/models/interface/login.model';
 import { LoginService } from 'src/app/shared/services/login.service';
 
 @Injectable({
@@ -12,8 +12,12 @@ import { LoginService } from 'src/app/shared/services/login.service';
 })
 export class AuthService {
   private usuarioAutenticado: boolean = false;
-  private usuarios!: Login[]
-  constructor(private router: Router, private loginService: LoginService, private dialogRef: MatDialog) {
+  private usuarios!: LoginModel[]
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
+   /*  private dialogRef: MatDialog */
+    ) {
 
   }
 
@@ -39,8 +43,9 @@ export class AuthService {
 
     if (login === 'admin' && senha === 'admin') {
       this.router.navigate(['/home'])
+    } else {
+      /* this.dialogRef.open(LoginErroComponent) */
+    }
 
-
-    } else this.dialogRef.open(LoginErroComponent)
   }
 }

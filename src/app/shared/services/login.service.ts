@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Login } from '../interface/login';
+import { LoginModel } from '../models/interface/login.model';
 
 
 @Injectable({
@@ -11,7 +11,7 @@ export class LoginService {
   private url = 'http://localhost:3000/login'
   constructor(private http: HttpClient) { }
 
-  public getUser(): Observable<Login[]> {
-    return this.http.get<Login[]>(this.url)
+  public getUser(): Observable<LoginModel[]> {
+    return this.http.get<LoginModel[]>(this.url)
   }
 }

@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { NavesComponent } from '../naves.component';
+/* import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NavesComponent } from '../naves.component'; */
 
 @Component({
   selector: 'app-naves-modal',
@@ -9,13 +9,13 @@ import { NavesComponent } from '../naves.component';
 })
 export class NavesModalComponent implements OnInit {
   constructor(
-    public dialogRef: MatDialogRef<NavesComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+   /*  public dialogRef: MatDialogRef<NavesComponent>, */
+   /*  @Inject(MAT_DIALOG_DATA) public data: any */
   ) {}
 
   ngOnInit(): void {}
 
-  onNoClick(): void {
+  /* onNoClick(): void {
     this.dialogRef.close()
-  }
+  } */
 }

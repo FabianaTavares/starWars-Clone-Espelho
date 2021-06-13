@@ -1,11 +1,11 @@
 import { PersonagemModalComponent } from './personagem-modal/personagem-modal.component';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { PageEvent } from '@angular/material/paginator';
+/* import { MatDialog } from '@angular/material/dialog';
+import { PageEvent } from '@angular/material/paginator'; */
 import { Observable, Subject } from 'rxjs';
 import { debounceTime, switchMap, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { Personagens } from 'src/app/shared/interface/personagens';
+import { PersonagensModel } from 'src/app/shared/models/interface/personagens.model';
 import { PersonagensService } from 'src/app/shared/services/personagens.service';
 
 
@@ -16,18 +16,18 @@ import { PersonagensService } from 'src/app/shared/services/personagens.service'
   styleUrls: ['./personagens.component.css'],
 })
 export class PersonagensComponent implements OnInit {
-  public personagensArray: Personagens[] = [];
+  public personagensArray: PersonagensModel[] = [];
   pageIndex: number = 0;
   pageSize!: number;
 
   private subjectPesquisa: Subject<string> = new Subject<string>()
   public personSearch!: Observable<any>
-  public pessoaPesquisada: Personagens[] = []
+  public pessoaPesquisada: PersonagensModel[] = []
 
 
   constructor(
     private personagemService: PersonagensService,
-    public dialog: MatDialog,
+   /*  public dialog: MatDialog, */
     private router: Router
   ) { }
 
@@ -49,7 +49,7 @@ export class PersonagensComponent implements OnInit {
     );
   }
 
-  proximaPagina(pe: PageEvent) {
+  /* proximaPagina(pe: PageEvent) {
     this.pageIndex = pe.pageIndex;
     this.listarPersonagens(pe.pageIndex + 1);
   }
@@ -60,7 +60,7 @@ export class PersonagensComponent implements OnInit {
       height: '500px',
       data: pessoa
     });
-  }
+  } */
 
   pesquisar(termoDaBusca: string): void {
     this.subjectPesquisa.next(termoDaBusca) //fica observando o componente

@@ -1,7 +1,7 @@
 import { PersonagensHeroisComponent } from './views/personagens-herois/personagens-herois.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ErroPageComponent } from './shared/erro-page/erro-page.component';
+import { ErroPageComponent } from './shared/componentes/erro-page/erro-page.component';
 
 
 import { FilmesComponent } from './views/filmes/filmes.component';

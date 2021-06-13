@@ -1,7 +1,7 @@
-import { Filme } from './filmes';
-import { Personagens } from './personagens';
+import { FilmeModel } from './filmes.model';
+import { PersonagensModel } from './personagens.model';
 
-export interface Planetas {
+export interface PlanetasModel {
   name: string;
   rotation_period: number;
   orbital_period: number;
@@ -11,8 +11,8 @@ export interface Planetas {
   terrain: string;
   surface_water: number;
   population: number;
-  residents: Personagens[];
-  films: Filme[];
+  residents: PersonagensModel[];
+  films: FilmeModel[];
   created: Date;
   edited: Date;
   url: string;

@@ -1,4 +1,4 @@
-import { MatDialog } from '@angular/material/dialog';
+//import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -23,7 +23,10 @@ export class LoginComponent implements OnInit {
   loginPrimitivo: boolean = true
   senhaPrimitivo: boolean = true
 
-  constructor(private authService: AuthService, private dialogRef: MatDialog) { }
+  constructor(
+    private authService: AuthService,
+    //private dialogRef: MatDialog
+  ) { }
 
 
   validarLogin() {
@@ -54,7 +57,7 @@ export class LoginComponent implements OnInit {
   logar() {
     const loginValue = this.loginForm.value
     if ((loginValue.login === '' || loginValue.login === null) || (loginValue.senha === '' || loginValue.senha === null)) {
-      this.dialogRef.open(LoginModalComponent)
+      //this.dialogRef.open(LoginModalComponent)
       this.senhaPrimitivo = false
       this.loginPrimitivo = false
     }

@@ -1,11 +1,11 @@
-import { PageEvent } from '@angular/material/paginator';
 import { Component, OnInit } from '@angular/core';
-
-import { MatDialog } from '@angular/material/dialog';
-import { NavesModalComponent } from './naves-modal/naves-modal.component';
+/* import { MatDialog } from '@angular/material/dialog';
+import { PageEvent } from '@angular/material/paginator'; */
 import { Router } from '@angular/router';
-import { Naves } from 'src/app/shared/interface/naves';
+import { NavesModel } from 'src/app/shared/models/interface/naves.model';
 import { NavesService } from 'src/app/shared/services/naves.service';
+
+import { NavesModalComponent } from './naves-modal/naves-modal.component';
 
 @Component({
   selector: 'app-naves',
@@ -13,11 +13,14 @@ import { NavesService } from 'src/app/shared/services/naves.service';
   styleUrls: ['./naves.component.css'],
 })
 export class NavesComponent implements OnInit {
-  navesArray: Naves[] = [];
+  navesArray: NavesModel[] = [];
   pageIndex: number = 0;
   pageSize!: number;
 
-  constructor(private navesService: NavesService, public dialog: MatDialog, private router: Router) { }
+  constructor(
+    private navesService: NavesService,
+    /* public dialog: MatDialog,  */
+    private router: Router) { }
 
   ngOnInit(): void {
     this.listarNaves(1);
@@ -36,7 +39,7 @@ export class NavesComponent implements OnInit {
     );
   }
 
-  passarPagina(pe: PageEvent) {
+  /* passarPagina(pe: PageEvent) {
     pe.pageIndex;
     this.listarNaves(pe.pageIndex + 1);
   }
@@ -46,5 +49,5 @@ export class NavesComponent implements OnInit {
       height: '430px',
       data: naves,
     });
-  }
+  } */
 }

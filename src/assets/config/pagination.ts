@@ -1,4 +1,4 @@
-import { MatPaginatorIntl } from '@angular/material/paginator';
+/* import { MatPaginatorIntl } from '@angular/material/paginator';
 const rangeLabel = (page: number, pageSize: number, length: number) => {
   if (length === 0 || pageSize === 0) {
     return `0 de ${length}`;
@@ -21,3 +21,4 @@ export function getPaginatorIntl() {
   paginatorIntl.getRangeLabel = rangeLabel;
   return paginatorIntl;
 }
+ */

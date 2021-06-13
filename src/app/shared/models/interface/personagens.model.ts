@@ -1,4 +1,4 @@
-export interface Personagens {
+export interface PersonagensModel {
   id: number;
   name: string;
   height: string;

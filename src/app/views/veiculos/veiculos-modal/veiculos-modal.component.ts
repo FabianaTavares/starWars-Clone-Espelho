@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Personagens } from 'src/app/shared/interface/personagens';
+/* import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+ */import { PersonagensModel } from 'src/app/shared/models/interface/personagens.model';
 
 import { VeiculosComponent } from '../veiculos.component';
 
@@ -10,16 +10,16 @@ import { VeiculosComponent } from '../veiculos.component';
   styleUrls: ['./veiculos-modal.component.css'],
 })
 export class VeiculosModalComponent implements OnInit {
-  pilotosArray: Personagens[] = []
+  pilotosArray: PersonagensModel[] = []
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private dialogRef: MatDialogRef<VeiculosComponent>,
+    /* @Inject(MAT_DIALOG_DATA) public data: any,
+    private dialogRef: MatDialogRef<VeiculosComponent>, */
   ) { }
 
   ngOnInit(): void { }
 
   onNoClick() {
-    this.dialogRef.close();
+    /* this.dialogRef.close(); */
   }
 
 
