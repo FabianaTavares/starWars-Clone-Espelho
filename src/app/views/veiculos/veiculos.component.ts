@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { PageEvent } from '@angular/material/paginator';
+/* import { MatDialog } from '@angular/material/dialog';
+import { PageEvent } from '@angular/material/paginator'; */
 import { Router } from '@angular/router';
-import { Veiculos } from 'src/app/shared/interface/veiculos';
+import { VeiculosModel } from 'src/app/shared/models/interface/veiculos.model';
 import { VeiculosService } from 'src/app/shared/services/veiculos.service';
 
 import { VeiculosModalComponent } from './veiculos-modal/veiculos-modal.component';
@@ -13,12 +13,12 @@ import { VeiculosModalComponent } from './veiculos-modal/veiculos-modal.componen
   styleUrls: ['./veiculos.component.css'],
 })
 export class VeiculosComponent implements OnInit {
-  veiculoArray: Veiculos[] = [];
+  veiculoArray: VeiculosModel[] = [];
   pageIndex: number = 0;
   pageSize!: number;
   constructor(
     private veiculoService: VeiculosService,
-    private dialogRef: MatDialog,
+   /*  private dialogRef: MatDialog, */
     private router: Router
   ) { }
 
@@ -38,7 +38,7 @@ export class VeiculosComponent implements OnInit {
       }
     );
   }
-  proximaPagina(pe: PageEvent) {
+ /*  proximaPagina(pe: PageEvent) {
     pe.pageIndex;
     this.listarVeiculos(pe.pageIndex + 1);
   }
@@ -49,5 +49,5 @@ export class VeiculosComponent implements OnInit {
       height: '430px',
       data: veiculo,
     });
-  }
+  } */
 }

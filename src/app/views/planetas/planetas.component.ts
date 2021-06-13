@@ -1,11 +1,11 @@
 import { PlanetaModalComponent } from './planeta-modal/planeta-modal.component';
-import { MatDialog } from '@angular/material/dialog';
-import { PageEvent } from '@angular/material/paginator';
+/* import { MatDialog } from '@angular/material/dialog';
+import { PageEvent } from '@angular/material/paginator'; */
 
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { Planetas } from 'src/app/shared/interface/planetas';
+import { PlanetasModel } from 'src/app/shared/models/interface/planetas.model';
 import { PlanetasService } from 'src/app/shared/services/planetas.service';
 
 @Component({
@@ -14,12 +14,12 @@ import { PlanetasService } from 'src/app/shared/services/planetas.service';
   styleUrls: ['./planetas.component.css'],
 })
 export class PlanetasComponent implements OnInit {
-  planetasArray: Planetas[] = [];
+  planetasArray: PlanetasModel[] = [];
   pageIndex: number = 0;
   pageSize!: number;
   constructor(
     private planetasService: PlanetasService,
-    private dialog: MatDialog,
+    /* private dialog: MatDialog, */
     private router: Router
   ) { }
 
@@ -40,7 +40,7 @@ export class PlanetasComponent implements OnInit {
     );
   }
 
-  passarPagina(pe: PageEvent) {
+  /* passarPagina(pe: PageEvent) {
     pe.pageIndex;
 
     this.listarPlanetas(pe.pageIndex + 1);
@@ -52,5 +52,5 @@ export class PlanetasComponent implements OnInit {
       height: '600px',
       data: planeta,
     });
-  }
+  } */
 }

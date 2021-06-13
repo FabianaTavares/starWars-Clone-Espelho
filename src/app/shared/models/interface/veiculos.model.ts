@@ -1,6 +1,6 @@
-import { Filme } from './filmes';
+import { FilmeModel } from './filmes.model';
 
-export interface Veiculos {
+export interface VeiculosModel {
   id: number;
   name: string;
   model: string;
@@ -13,7 +13,7 @@ export interface Veiculos {
   cargo_capacity: number;
   consumables: number;
   vehicles_class: string;
-  films: Filme[];
+  films: FilmeModel[];
   created: Date;
   edited: Date;
   url: string;

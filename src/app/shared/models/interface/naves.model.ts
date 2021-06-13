@@ -1,6 +1,6 @@
-import { Filme } from './filmes';
+import { FilmeModel } from './filmes.model';
 
-export interface Naves {
+export interface NavesModel {
   name: string;
   model: string;
   manufacturer: string;
@@ -15,7 +15,7 @@ export interface Naves {
   MGLT: number;
   starship_class: string;
   pilots: [];
-  filmes: Filme[];
+  filmes: FilmeModel[];
   created: Date;
   edited: Date;
   url: string;
